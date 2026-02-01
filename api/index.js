@@ -51,6 +51,12 @@ export default async (req, res) => {
   } = req.query;
   res.setHeader("Content-Type", "image/svg+xml");
 
+  if (username !== "Zi-Tao") {
+    res.statusCode = 302;
+    res.setHeader("Location", "https://vercel.com");
+    return res.end();
+  }
+
   const access = guardAccess({
     res,
     id: username,
